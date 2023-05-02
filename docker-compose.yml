@@ -9,3 +9,20 @@ services:
       - type: bind
         source: ./src
         target: /src
+  db:
+    build:
+      context: ./docker/db
+      dockerfile: Dockerfile
+    container_name: "db"
+    ports:
+      - ${MYSQL_PORT}:3306
+    environment:
+      MYSQL_DATABASE: database
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      TZ: "Asia/Tokyo"
+    volumes:
+      - mysql-data:/var/lib/mysql
+volumes:
+  mysql-data:
