@@ -2,7 +2,7 @@ package entities
 
 type User struct {
 	ID       int
-	name     string
+	Name     string
 	Email    string
 	Password string
 }
