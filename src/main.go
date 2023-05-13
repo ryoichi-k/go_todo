@@ -2,11 +2,15 @@ package main
 
 import (
 	"fmt"
-	"github.com/ryoichi-k/go_todo/drivers"
+
+	drivers "github.com/ryoichi-k/go_todo/drivers"
 )
 
 func main() {
 	fmt.Println("Hello world")
 	fmt.Println("Hello world!!!!!!!!")
-	n := NewMysqlDriver()
+	_, err := drivers.NewMysqlDriver()
+	if err != nil {
+		fmt.Println("n")
+	}
 }

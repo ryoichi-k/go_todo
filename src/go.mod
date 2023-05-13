@@ -1,4 +1,4 @@
-module go_todo
+module github.com/ryoichi-k/go_todo
 
 go 1.20
 
