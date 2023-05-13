@@ -11,6 +11,6 @@ func main() {
 	fmt.Println("Hello world!!!!!!!!")
 	_, err := drivers.NewMysqlDriver()
 	if err != nil {
-		fmt.Println("n")
+		fmt.Println("NewMysqlDriver() error")
 	}
 }
