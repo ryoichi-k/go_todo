@@ -3,7 +3,7 @@ package main
 import (
 	"fmt"
 
-	drivers "github.com/ryoichi-k/go_todo/drivers"
+	drivers "github.com/ryoichi-k/go_todo/infrastructure/drivers"
 )
 
 func main() {
