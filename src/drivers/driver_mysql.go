@@ -55,15 +55,15 @@ type Rows struct {
 	Rows *sql.Rows
 }
 
-func (r Rows) Close() {
+func (r *Rows) Close() {
 	defer r.Rows.Close()
 }
 
-func (r Rows) Next() {
+func (r *Rows) Next() {
 	r.Rows.Next()
 }
 
-func (r Rows) Scan(dest ...any) error {
+func (r *Rows) Scan(dest ...any) error {
 	err := r.Rows.Scan(dest)
 	if err != nil {
 		return err
