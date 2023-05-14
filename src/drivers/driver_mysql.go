@@ -13,7 +13,7 @@ type Mysql struct {
 	db *sql.DB
 }
 
-//builder
+// builder
 func NewMysqlDriver() (*Mysql, error) {
 	db, err := sql.Open("mysql", "root:root@tcp(0.0.0.0:3306)/go_todo")
 	if err != nil {
@@ -51,10 +51,22 @@ func (m *Mysql) QueryContext(ctx context.Context, query string, args ...any) (*s
 	return rows, nil
 }
 
-type Row struct {
+type Rows struct {
 	Rows *sql.Rows
 }
 
-func (r Row) Close() {
+func (r Rows) Close() {
 	defer r.Rows.Close()
+}
+
+func (r Rows) Next() {
+	r.Rows.Next()
+}
+
+func (r Rows) Scan(dest ...any) error {
+	err := r.Rows.Scan(dest)
+	if err != nil {
+		return err
+	}
+	return nil
 }

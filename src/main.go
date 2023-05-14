@@ -8,7 +8,6 @@ import (
 
 func main() {
 	fmt.Println("Hello world")
-	fmt.Println("Hello world!!!!!!!!")
 	_, err := drivers.NewMysqlDriver()
 	if err != nil {
 		fmt.Println("NewMysqlDriver() error")
