@@ -64,9 +64,5 @@ func (r *Rows) Next() bool {
 }
 
 func (r *Rows) Scan(dest ...any) error {
-	err := r.Rows.Scan(dest...)
-	if err != nil {
-		return err
-	}
-	return nil
+	return r.Rows.Scan(dest...)
 }
