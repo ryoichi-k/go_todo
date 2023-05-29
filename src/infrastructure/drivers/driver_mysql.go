@@ -15,7 +15,7 @@ type Mysql struct {
 
 // builder
 func NewMysqlDriver() (*Mysql, error) {
-	db, err := sql.Open("mysql", "root:root@tcp(0.0.0.0:3306)/go_todo")
+	db, err := sql.Open("mysql", "root:root@tcp(db)/go_todo")
 	if err != nil {
 		log.Fatalf("main sql.Open error err:%v", err)
 		return nil, err
