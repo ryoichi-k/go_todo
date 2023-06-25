@@ -50,7 +50,7 @@ func handler(w http.ResponseWriter, r *http.Request) {
 	fmt.Println("ナイス！君は神だよ！自信もって！")
 }
 func handlerAge(w http.ResponseWriter, r *http.Request) {
-	var human = "yajuu"
-	fmt.Printf("24歳です。%s \n", human)
+	var human = "aaaS"
+	fmt.Printf("test。%s \n", human)
 	algo.MovementPattern()
 }
