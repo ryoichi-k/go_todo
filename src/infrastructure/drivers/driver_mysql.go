@@ -1,7 +1,6 @@
 package drivers
 
 import (
-	"context"
 	"database/sql"
 	"fmt"
 	"log"
@@ -29,40 +28,4 @@ func NewMysqlDriver() (*Mysql, error) {
 	fmt.Println("connection test success")
 	m := &Mysql{db: db}
 	return m, nil
-}
-
-func (m *Mysql) Query(query string) (*sql.Rows, error) {
-	rows, err := m.db.Query(query)
-	if err != nil {
-		log.Fatalf("Query db.Query error err:%v", err)
-		return nil, err
-	}
-	defer rows.Close()
-	return rows, nil
-}
-
-func (m *Mysql) QueryContext(ctx context.Context, query string, args ...any) (*sql.Rows, error) {
-	rows, err := m.db.QueryContext(ctx, query, args)
-	if err != nil {
-		log.Fatalf("Query db.QueryContext error err:%v", err)
-		return nil, err
-	}
-	defer rows.Close()
-	return rows, nil
-}
-
-type Rows struct {
-	Rows *sql.Rows
-}
-
-func (r *Rows) Close() error {
-	return r.Rows.Close()
-}
-
-func (r *Rows) Next() bool {
-	return r.Rows.Next()
-}
-
-func (r *Rows) Scan(dest ...any) error {
-	return r.Rows.Scan(dest...)
 }
